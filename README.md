@@ -1,104 +1,42 @@
-# project-1-implementation-informatics
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/4OC8STES)
 
-# CS515 - Social Media Data Science Pipeline - Project 1
 
-## Table of Contents
 
-- [Introduction](#introduction)
-- [Author](#author)
-- [Programming Language](#programming-language)
-- [Execution Instructions](#execution-instructions)
-- [Code Overview](#code-overview)
-- [Additional Function](#additional-function)
+## Analysis of Popularity of Artists on Spotify
 
-## Introduction
+## Description
 
-This repository contains a Python program for data collection and
-analysis. The program collects data from Reddit using the Reddit API and
-Spotipy API. 
+The project collects real-time data from two data sources: Reddit, and Spotify. For Reddit, it collects data from various music subreddit threads using Reddit API. For Spotify, using Spotify API data is collected for artists, their albums, top tracks and their features. The Reddit job is scheduled for every 5 mins for a single subreddit whereas the Spotify one is scheduled ever 10 hours. The data is stored in PostgresSQL database.
 
-## Author
+Using the data collection, we have performed two analysis and tried to answer one research question:
+* Analysis
+    * Top 10 artists for a particular year
+    * Sentiment Analysis to justify the popularity of artist/track
+* Research Question
+    * Correlation of song popularity with song features
 
-- **Name**: Akshat Shah
-- **Email**: ashah85@binghamton.edu
-- **B-Number**: B00969887
 
-- **Name**: Mrugank Jadhav
-- **Email**: mjadhav1@binghamton.edu
-- **B-Number**: B00972210
+## Tech-stack
 
-- **Name**: Riddhi Jaju
-- **Email**: rjaju1@binghamton.edu
-- **B-Number**: B00970879
+* `python` - The project is developed and tested using python. 
+* `Flask` - A micro web framework for Python.
+* `matplotlib` - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
+* `nltk` - A natural language processing library that provides tools for working with human language data.
+* `pandas` -A powerful data manipulation and analysis library for Python.
+* `psycopg2-binary` - A PostgreSQL adapter for Python, providing a fast and efficient way to interact with PostgreSQL databases.
+* `requests` - A simple HTTP library for making requests to web services.
+* `seaborn` - A statistical data visualization library based on Matplotlib, providing a high-level interface for drawing attractive and informative statistical graphics.
 
-- **Name**: Shivani Bhatti
-- **Email**: sbhatti1@binghamton.edu
-- **B-Number**: B00979226
+## How to run the project?
 
-- **Name**: Avani Phase
-- **Email**: aphase1@binghamton.edu
-- **B-Number**: B00979185
+1. Install requirements.txt to install all the dependencies added in the remote server: 
+```
+   pip install -r requirements.txt
+```
+2. To launch the Flask application, run
+```
+   python3 FlaskServer.py
+```
 
-## Programming Language
 
-- **Language**: Python
-- **Tested on Virtual Machine**: 128.226.29.104
 
-## Execution Instructions
-
-To execute the program, follow these instructions:
-
-### Encoding
-
-1. Open a terminal or command prompt.
-2. Navigate to the directory containing the Python program.
-3. Run the following command to perform data collection: 
-   
-        cd Scrapper
-        python3 scheduler.py
-
-4. The program collects data from Reddit every 5 minutes and stores it
-   in the postgres database.
-
-5. The program also collects data from Spotify every 10 hours and 
-   stores it in the postgres database.
-
-## Code Overview
-
-The Python program `scheduler.py` contains the following functions:
-
-1. **Data Collection**: The program collects data from Reddit using the
-   Reddit API and Spotipy API. The data is stored in the postgres 
-   database.
-
-2. **Error Handling**: The program handles errors and exceptions 
-   gracefully while collecting data from Reddit and Spotify.
-
-3. **Logging**: The program logs the errors and exceptions on the 
-   terminal.
-
-4. **Postgres Database**: The program uses the postgres database to 
-   store the data collected from Reddit and Spotify. There are multiple
-    tables in the database to store the data.
-    - `artist_albums`: Stores the albums of the artists.
-    - `artist_top_tracks`: Stores the top tracks of the artists.
-    - `reddit_comments`: Stores the comments from Reddit.
-    - `reddit_posts`: Stores the posts from Reddit.
-    - `reddit_job_stats`: Stores the statistics of the Reddit job.
-    - `spotify_job_stats`: Stores the statistics of the Spotify job.
-    - `spotify_artists`: Stores the artists from Spotify.
-    - `track_audio_features`: Stores the audio features of the tracks.
-
-5. **Program Files**: The program contains the following files:
-    - `scheduler.py`: The main program file.
-    - `redditCrawler.py`: The file contains the functions to collect 
-      data from Reddit.
-    - `spotifyCrawler.py`: The file contains the functions to collect 
-      data from Spotify.
-    - `.env`: The file contains the environment variables.
-
-6. **Main Execution**: The `scheduler.py` file contains the main 
-   execution of the program. The program collects data from Reddit and 
-   Spotify using Reddit and Spotify scripts.
-
-7. **Project Report**: The project report is saved as `CS515_project1_report.pdf`.
